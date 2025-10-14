@@ -56,7 +56,7 @@ You can do some settings on the output tokens and choose your model on the scryp
 
 
 ## ¿Future updates?
--Translating text on the screenshoots to English and some text that is not in English
+-Translating text on the screenshoots to English and some text that is not in English on the code (The text output)
 
 -Do some cleaning on the Files
 
