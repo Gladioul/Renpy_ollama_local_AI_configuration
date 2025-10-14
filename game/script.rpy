@@ -1,5 +1,4 @@
-﻿# game/script.rpy
-define e = Character('Eileen')
+﻿define e = Character('Eileen')
 define p = Character('Me')
 
 init python:
@@ -21,13 +20,28 @@ init python:
         except Exception as e:
             return "[Error: {}]".format(e)
 
+    def dividir_en_bloques(texto, limite=32):
+        """
+        Divide el texto en bloques consecutivos de máximo 'limite' palabras.
+        Los bloques intermedios terminan con '...' para indicar que continúa.
+        """
+        palabras = texto.split()
+        bloques = []
+        for i in range(0, len(palabras), limite):
+            bloque = palabras[i:i+limite]
+            if i + limite < len(palabras):
+                bloques.append(" ".join(bloque) + "...")
+            else:
+                bloques.append(" ".join(bloque))
+        return bloques
+
 label start:
     scene bg room
     show eileen happy
-    $ history = []  # lista simple de (usuario, ia)
+    $ history = []
 
 label chat:
-    e "Write somethin and I talk back. Leave it empty to exit."
+    e "Write something and I talk back. Leave it empty to exit."
 
     $ user = renpy.input("Your message:")
 
@@ -37,7 +51,13 @@ label chat:
 
     p "[user]"
     $ reply = generar_con_ollama(user)
-    $ history.append((user, reply))
 
-    e "[reply]"
+    python:
+        for line in reply.splitlines():
+            if line.strip():
+                bloques = dividir_en_bloques(line)
+                for bloque in bloques:
+                    renpy.say(e, bloque)
+                    history.append((user, bloque))  # Guardar cada bloque mostrado
+
     jump chat

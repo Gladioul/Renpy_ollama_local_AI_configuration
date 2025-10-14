@@ -61,14 +61,15 @@ You can do some settings on the output tokens and choose your model on the scryp
 ## ¿Future updates?
 -Translating text on the screenshoots to English and some text that is not in English
 
--Do some cleaning on the Files
+-Do some cleaning on the Files 
 
 -Add some style to the program (It's pretty rough):
 Image for the girl
 Not use the default UI
 Beurify the menu
 
--Program that if the response is too bif for the dialogue box, put it on the next dialogue box (Feaseable)
+-Program that if the response is too big for the dialogue box, put it on the next dialogue box (Feaseable) **Done**
+
 
 -Upgrading this Wiki, after more testing
 
