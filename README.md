@@ -66,6 +66,14 @@ You can do some settings on the output tokens and choose your model on the scryp
 
 -Add the chance to input personality to the prompts
 
+-Explain that is not necesary to use ollam via cmd
+
+-¿Logo for the repo?
+
+-¿Create a default personality and look for our MC?
+
+-TTS?
+
 -Do some cleaning on the Files 
 
 -Add some style to the program (It's pretty rough):
@@ -81,11 +89,11 @@ Beutify the menu
 
 -Add more AI tools (This one is greedy)
 
--Better response time **Done**
+-Better response time **Done** **0.2** (Is explained on tips and tricks)
 
--Program that if the response is too big for the dialogue box, put it on the next dialogue box (Feaseable) **Done**
+-Program that if the response is too big for the dialogue box, put it on the next dialogue box (Feaseable) **Done** **0.2**
 
--Translating text on the screenshoots to English and some text that is not in English **Done**
+-Translating text on the screenshoots to English and some text that is not in English **Done** **0.2**
 
 ## Trouble shoothing
 
