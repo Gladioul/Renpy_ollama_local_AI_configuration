@@ -48,6 +48,8 @@ You can add a 'base prompt' by addig the tokens via code on scrypt.rpy it can gi
 * Personality for your character
 * Limit the number of words of the response (It is already implemented to fit in the chatter box
 
+You can do some settings on the output tokens and choose your model on the scrypt.rpy
+
 ## Tips and Tricks
 
 -Use auto to avoid spaming clicks to know when the response has been served
