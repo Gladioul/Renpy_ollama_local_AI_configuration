@@ -36,8 +36,8 @@ The run the renpy project
 ## Customaization 
 
 - You can add a 'base prompt' by addig the tokens via code on scrypt.rpy it can give you:
-           * Personality for your character
-           * Limit the number of words of the response (It is already implemented to fit in  the chatter box
+* Personality for your character
+* Limit the number of words of the response (It is already implemented to fit in the chatter box
 
 ## Tips and Tricks
 
