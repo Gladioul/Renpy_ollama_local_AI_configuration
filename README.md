@@ -5,7 +5,7 @@ This ren'py project is a functional concept of how using ren'py connected to oll
 ##  Set up
 
 ###  Option A:
-1. Download only the .exe
+1. Download only the  Build folder according to your SO
 2. Download ollama and download the model via ollama
 3. Run the model on Ollama 
 4. Start the .exe
