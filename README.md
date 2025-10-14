@@ -54,7 +54,10 @@ You can add a 'base prompt' by addig the tokens via code on scrypt.rpy it can gi
 
 
 ## ¿Future updates?
+-Translating text on the screenshoots to English and some text that is not in English
+
 -Do some cleaning on the Files
+
 -Add some style to the program (It's pretty rough)
 
 -Upgrading this Wiki, after more testing
