@@ -29,8 +29,17 @@ This project is using  gemma3:1b, provides good performance for 'low' system req
 You have to start ollama.exe (If you don't have config to boot on start)
 
 Use cmd to run the model (Example: ollama run gemma3:1b)
+![Ollama](pics/ollama.jpg)
 
 The run the renpy project
+
+## Results
+
+![Start](pics/start.jpg)
+![Input](pics/input.jpg)
+![Pics](pics/output.jpg)
+
+
 
 
 ## Customaization 
