@@ -12,7 +12,7 @@ This ren'py project is a functional concept of how using ren'py connected to oll
 5. Start the game, and YOU GOT IT
 
 ### Option B:
-1.Download this repo and move to your folder where the other renpy projects are stored or create a new one and overwrite it with this one (Other way is only changing the scrypt.rpy file)
+1.Download this game folder and move to your folder where the other renpy projects are stored or create a new one and overwrite it with this one (Other way is only changing the scrypt.rpy file)
 2. Download ollama and download the model via ollama
 3. Run the model on Ollama 
 4. Launch the project
@@ -36,8 +36,8 @@ The run the renpy project
 ## Customaization 
 
 - You can add a 'base prompt' by addig the tokens via code on scrypt.rpy it can give you:
-           -Personality for your character
-           -Limit the number of words of the response (It is already implemented to fit in the chatter box
+           * Personality for your character
+           * Limit the number of words of the response (It is already implemented to fit in  the chatter box
 
 ## Tips and Tricks
 
