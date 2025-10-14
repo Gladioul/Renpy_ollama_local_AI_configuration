@@ -12,7 +12,7 @@
 ##
 ## The _() surrounding the string marks it as eligible for translation.
 
-define config.name = _("Stellar Sunshine")
+define config.name = _("Renpy Ollama")
 
 
 ## Determines if the title given above is shown on the main menu screen. Set
@@ -37,7 +37,7 @@ define gui.about = _p("""
 ## distribution. This must be ASCII-only, and must not contain spaces, colons,
 ## or semicolons.
 
-define build.name = "StellarSunshine"
+define build.name = "RenpyOllama"
 
 
 ## Sounds and music ############################################################
@@ -117,8 +117,8 @@ define config.window_hide_transition = Dissolve(.2)
 
 ## Preference defaults #########################################################
 
-## Controls the default text speed. The default, 0, is infinite, while any other
-## number is the number of characters per second to type out.
+## Controls the default text speed. The default, 0, is infinite, while any
+## other number is the number of characters per second to type out.
 
 default preferences.text_cps = 0
 
@@ -143,7 +143,7 @@ default preferences.afm_time = 15
 ## This generally should not be changed, and if it is, should always be a
 ## literal string, not an expression.
 
-define config.save_directory = "StellarSunshine-1709972676"
+define config.save_directory = "RenpyOllama-1760443263"
 
 
 ## Icon ########################################################################
@@ -172,8 +172,8 @@ init python:
     ##
     ## ** matches all characters, including the directory separator.
     ##
-    ## For example, "*.txt" matches txt files in the base directory, "game/
-    ## **.ogg" matches ogg files in the game directory or any of its
+    ## For example, "*.txt" matches txt files in the base directory,
+    ## "game/**.ogg" matches ogg files in the game directory or any of its
     ## subdirectories, and "**.psd" matches psd files anywhere in the project.
 
     ## Classify files as None to exclude them from the built distributions.
