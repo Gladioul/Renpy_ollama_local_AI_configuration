@@ -5,18 +5,20 @@ This ren'py project is a functional concept of how using ren'py connected to oll
 ##  Set up
 
 ###  Option A:
-1. Download only the  Build folder according to your SO
+1. Download only the releases .zip, they are on the Releases section in the right. Download only the one of your SO (Only tested on Windows)
 2. Download ollama and download the model via ollama
 3. Run the model on Ollama 
 4. Start the .exe
 5. Start the game, and YOU GOT IT
 
 ### Option B:
-1. Download this game folder and move to your folder where the other renpy projects are stored or create a new one and overwrite it with this one (Other way is only changing the scrypt.rpy file)
-2. Download ollama and download the model via ollama
-3. Run the model on Ollama 
-4. Launch the project
-5. Start the game, and YOU GOT IT
+1. Download this project and move to your folder where the other renpy projects are stored or create a new one and overwrite it with this one (Other way is only changing the scrypt.rpy file)
+   To download you can go to the button Code-> Download Zip or use git.
+3. Download ollama and download the model via ollama
+4. Run the model on Ollama 
+5. Launch the project
+6. Start the game, and YOU GOT IT
+   
 ## Important settings
 
 ### Choosing model: 
