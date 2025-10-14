@@ -48,9 +48,11 @@ The run the renpy project
 
 ## Performace
 
-Is quite good (5 seconds)
+Is quite good (5 seconds to generate)
 
+Test de context limit, on what extent is a problem and find opctions to expand it 
 
+If the context is a problem implement a function to refresh de model
 
 ## Customaization 
 
@@ -69,6 +71,10 @@ You can do some settings on the output tokens and choose your model on the scryp
 
 ## ¿Future updates?
 
+-Merge v0.2
+
+-Specify the LICENSE
+
 -Digging into settings of the ollama side of the code
 
 -put on other .py the ollama part to improve readibilty
@@ -78,6 +84,8 @@ You can do some settings on the output tokens and choose your model on the scryp
 -Add the chance to input personality to the prompts
 
 -Explain that is not necesary to use ollam via cmd
+
+-Add a diaologue function for multiple characters controlled by the model talk between them ¿Other repo?
 
 -¿Logo for the repo?
 
