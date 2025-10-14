@@ -71,6 +71,10 @@ You can do some settings on the output tokens and choose your model on the scryp
 
 ## ¿Future updates?
 
+-Check typos and grammar
+
+-Create a development journal
+
 -Merge v0.2
 
 -Specify the LICENSE
