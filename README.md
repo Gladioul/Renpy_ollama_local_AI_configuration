@@ -42,13 +42,17 @@ The run the renpy project
 ![Pics](pics/Output.png)
 
 
+## Performace
+
+Is quite good (5 seconds)
+
 
 
 ## Customaization 
 
 You can add a 'base prompt' by addig the tokens via code on scrypt.rpy it can give you:
 * Personality for your character
-* Limit the number of words of the response (It is already implemented to fit in the chatter box
+* Limit the number of words of the response (It is already implemented to fit in the chatter box)
 
 You can do some settings on the output tokens and choose your model on the scrypt.rpy
 
@@ -59,25 +63,29 @@ You can do some settings on the output tokens and choose your model on the scryp
 
 
 ## ¿Future updates?
--Translating text on the screenshoots to English and some text that is not in English
+
+-Add the chance to input personality to the prompts
 
 -Do some cleaning on the Files 
 
 -Add some style to the program (It's pretty rough):
 Image for the girl
 Not use the default UI
-Beurify the menu
+Beutify the menu
 
--Program that if the response is too big for the dialogue box, put it on the next dialogue box (Feaseable) **Done**
-
+-More comments on the code
 
 -Upgrading this Wiki, after more testing
 
 -Integrate transformers or ollama on the renpy project to have a stand alone build to use locally
 
--Better response time, this can be tough I see other webUI struggling with this
-
 -Add more AI tools (This one is greedy)
+
+-Better response time **Done**
+
+-Program that if the response is too big for the dialogue box, put it on the next dialogue box (Feaseable) **Done**
+
+-Translating text on the screenshoots to English and some text that is not in English **Done**
 
 ## Trouble shoothing
 
