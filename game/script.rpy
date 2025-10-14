@@ -1,39 +1,43 @@
-# Declaración de personajes
-define e = Character("Eileen")
+﻿# game/script.rpy
+define e = Character('Eileen')
+define p = Character('Tú')
 
-# Inicialización de Python para usar Transformers desde lib/Transformers
 init python:
-    import sys
-    import os
+    import requests
+    OLLAMA_URL = "http://localhost:11434/api/generate"
+    MODEL_NAME = "gemma3:1b"
 
-    # Ruta al código fuente de Transformers clonado
-    transformers_path = os.path.abspath("lib/Transformers/src")
-    sys.path.append(transformers_path)
+    def generar_con_ollama(prompt):
+        payload = {
+            "model": MODEL_NAME,
+            "prompt": prompt,
+            "stream": False
+        }
+        try:
+            resp = requests.post(OLLAMA_URL, json=payload, timeout=20)
+            resp.raise_for_status()
+            data = resp.json()
+            return data.get("response") or data.get("text") or str(data)
+        except Exception as e:
+            return "[Error: {}]".format(e)
 
-    # Importar desde Transformers
-    from transformers import AutoTokenizer, AutoModelForCausalLM, pipeline
-
-    # Cargar el modelo Gemma
-    tokenizer = AutoTokenizer.from_pretrained("google/gemma-2b-it")
-    model = AutoModelForCausalLM.from_pretrained("google/gemma-2b-it")
-    generator = pipeline("text-generation", model=model, tokenizer=tokenizer)
-
-    # Función para generar texto
-    def generar_texto(prompt, max_length=100):
-        resultado = generator(prompt, max_length=max_length, do_sample=True)
-        return resultado[0]["generated_text"]
-
-# Inicio del juego
 label start:
-
     scene bg room
     show eileen happy
+    $ history = []  # lista simple de (usuario, ia)
 
-    # Prompt para Gemma
-    $ entrada = "Saluda al jugador y explícale cómo crear una historia en Ren'Py."
-    $ respuesta = generar_texto(entrada)
+label chat:
+    e "Escribe algo y te respondo. Deja vacío para salir."
 
-    # Mostrar el texto generado
-    e "[respuesta]"
+    $ user = renpy.input("Tu mensaje:")
 
-    return
+    if user == "":
+        e "Hasta luego."
+        return
+
+    p "[user]"
+    $ reply = generar_con_ollama(user)
+    $ history.append((user, reply))
+
+    e "[reply]"
+    jump chat
