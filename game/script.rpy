@@ -1,6 +1,6 @@
 ﻿# game/script.rpy
 define e = Character('Eileen')
-define p = Character('Tú')
+define p = Character('Me')
 
 init python:
     import requests
@@ -27,12 +27,12 @@ label start:
     $ history = []  # lista simple de (usuario, ia)
 
 label chat:
-    e "Escribe algo y te respondo. Deja vacío para salir."
+    e "Write somethin and I talk back. Leave it empty to exit."
 
-    $ user = renpy.input("Tu mensaje:")
+    $ user = renpy.input("Your message:")
 
     if user == "":
-        e "Hasta luego."
+        e "See you."
         return
 
     p "[user]"
