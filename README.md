@@ -1,2 +1,68 @@
-## Documentation
-Read the Documentation on: https://github.com/Gladioul/Ren-py-ollama.cpp-configuration/wiki/Local-Ai-in-renpy-is-possible%3F%3F
+## ¿Dreaming to create a ChatBot using Ren'py as your UI?
+
+This ren'py project is a functional concept of how using ren'py connected to ollama.cpp could bring a nice full local Chatbot, this repo provides a project of renpy to customize it and the project build.
+
+##  Set up
+
+###  Option A:
+1. Download only the .exe
+2. Download ollama and download the model via ollama
+3. Run the model on Ollama 
+4. Start the .exe
+5. Start the game, and YOU GOT IT
+
+### Option B:
+1.Download this repo and move to your folder where the other renpy projects are stored or create a new one and overwrite it with this one (Other way is only changing the scrypt.rpy file)
+2. Download ollama and download the model via ollama
+3. Run the model on Ollama 
+4. Launch the project
+5. Start the game, and YOU GOT IT
+## Important settings
+
+### Choosing model: 
+
+This project is using  gemma3:1b, provides good performance for 'low' system requirements, but you can pick other model. Remember to change the 8 line on scrypt.rpy with the name of the model
+
+
+## I have all set up ¿How I run it?
+
+You have to start ollama.exe (If you don't have config to boot on start)
+
+Use cmd to run the model (Example: ollama run gemma3:1b)
+
+The run the renpy project
+
+
+## Customaization 
+
+- You can add a 'base prompt' by addig the tokens via code on scrypt.rpy it can give you:
+           -Personality for your character
+           -Limit the number of words of the response (It is already implemented to fit in the chatter box
+
+## Tips and Tricks
+
+-Use auto to avoid spaming clicks to know when the response has been served
+
+
+## ¿Future updates?
+-Do some cleaning on the Files
+-Add some style to the program (It's pretty rough)
+
+-Upgrading this Wiki, after more testing
+
+-Integrate transformers or ollama on the renpy project to have a stand alone build to use locally
+
+-Better response time, this can be tough I see other webUI struggling with this
+
+-Add more AI tools (This one is greedy)
+
+## Trouble shoothing
+
+-Waiting Feedback!!!!
+
+
+##  Related Projects:
+
+https://github.com/Calandiel/llama-renpy/blob/master/script.rpy
+
+
