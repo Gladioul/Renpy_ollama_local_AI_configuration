@@ -55,6 +55,7 @@ You can do some settings on the output tokens and choose your model on the scryp
 ## Tips and Tricks
 
 -Use auto to avoid spaming clicks to know when the response has been served
+-Put the auto setting bar below mid to get a more fluid conversation
 
 
 ## ¿Future updates?
@@ -62,7 +63,12 @@ You can do some settings on the output tokens and choose your model on the scryp
 
 -Do some cleaning on the Files
 
--Add some style to the program (It's pretty rough)
+-Add some style to the program (It's pretty rough):
+Image for the girl
+Not use the default UI
+Beurify the menu
+
+-Program that if the response is too bif for the dialogue box, put it on the next dialogue box (Feaseable)
 
 -Upgrading this Wiki, after more testing
 
@@ -80,5 +86,3 @@ You can do some settings on the output tokens and choose your model on the scryp
 ##  Related Projects:
 
 https://github.com/Calandiel/llama-renpy/blob/master/script.rpy
-
-
