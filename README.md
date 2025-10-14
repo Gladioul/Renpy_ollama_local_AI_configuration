@@ -6,17 +6,21 @@ This ren'py project is a functional concept of how using ren'py connected to oll
 
 ###  Option A:
 1. Download only the releases .zip, they are on the Releases section in the right. Download only the one of your SO (Only tested on Windows)
-2. Download ollama and download the model via ollama
-3. Run the model on Ollama 
+2. Download ollama and download gemma3:1b via ollama
+If done properly:
+![Ollama](pics/Ollama.png)
+3. Run Ollama 
 4. Start the .exe
 5. Start the game, and YOU GOT IT
 
 ### Option B:
 1. Download this project and move to your folder where the other renpy projects are stored or create a new one and overwrite it with this one (Other way is only changing the scrypt.rpy file)
    To download you can go to the button Code-> Download Zip or use git.
-3. Download ollama and download the model via ollama
+3. Download ollama and download gemma3:1b via ollama
+If done properly:
+![Ollama](pics/Ollama.png)
 4. Run the model on Ollama 
-5. Launch the project
+5. Launch the project in Ren'py
 6. Start the game, and YOU GOT IT
    
 ## Important settings
@@ -30,8 +34,8 @@ This project is using  gemma3:1b, provides good performance for 'low' system req
 
 You have to start ollama.exe (If you don't have config to boot on start)
 
-Use cmd to run the model (Example: ollama run gemma3:1b)
-![Ollama](pics/Ollama.png)
+
+
 
 The run the renpy project
 
@@ -59,10 +63,17 @@ You can do some settings on the output tokens and choose your model on the scryp
 ## Tips and Tricks
 
 -Use auto to avoid spaming clicks to know when the response has been served
+
 -Put the auto setting bar below mid to get a more fluid conversation
 
 
 ## ¿Future updates?
+
+-Digging into settings of the ollama side of the code
+
+-put on other .py the ollama part to improve readibilty
+
+-Create a icon for the program and the repo
 
 -Add the chance to input personality to the prompts
 
@@ -72,9 +83,13 @@ You can do some settings on the output tokens and choose your model on the scryp
 
 -¿Create a default personality and look for our MC?
 
+-¿Themed background?
+
 -TTS?
 
 -Do some cleaning on the Files 
+
+-Display the 1.0 version on the Ren'py forum ¿Also on Reddit?
 
 -Add some style to the program (It's pretty rough):
 Image for the girl
