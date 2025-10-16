@@ -96,7 +96,6 @@ style frame:
 ## https://www.renpy.org/doc/html/screen_special.html#say
 
 screen say(who, what):
-    style_prefix "say"
 
     window:
         id "window"
@@ -111,8 +110,8 @@ screen say(who, what):
         text what id "what"
 
 
-    ## If there's a side image, display it above the text. Do not display on the
-    ## phone variant - there's no room.
+    ## If there's a side image, display it above the text. Do not display on
+    ## the phone variant - there's no room.
     if not renpy.variant("small"):
         add SideImage() xalign 0.0 yalign 1.0
 
@@ -233,8 +232,8 @@ style choice_button_text is default:
 
 ## Quick Menu screen ###########################################################
 ##
-## The quick menu is displayed in-game to provide easy access to the out-of-game
-## menus.
+## The quick menu is displayed in-game to provide easy access to the out-of-
+## game menus.
 
 screen quick_menu():
 
@@ -245,9 +244,7 @@ screen quick_menu():
 
         hbox:
             style_prefix "quick"
-
-            xalign 0.5
-            yalign 1.0
+            style "quick_menu"
 
             textbutton _("Back") action Rollback()
             textbutton _("History") action ShowMenu('history')
@@ -266,8 +263,13 @@ init python:
 
 default quick_menu = True
 
+style quick_menu is hbox
 style quick_button is default
 style quick_button_text is button_text
+
+style quick_menu:
+    xalign 0.5
+    yalign 1.0
 
 style quick_button:
     properties gui.button_properties("quick_button")
@@ -605,8 +607,8 @@ screen file_slots(title):
 
         fixed:
 
-            ## This ensures the input will get the enter event before any of the
-            ## buttons do.
+            ## This ensures the input will get the enter event before any of
+            ## the buttons do.
             order_reverse True
 
             ## The page name, which can be edited by clicking on a button.
@@ -662,6 +664,7 @@ screen file_slots(title):
                     spacing gui.page_spacing
 
                     textbutton _("<") action FilePagePrevious()
+                    key "save_page_prev" action FilePagePrevious()
 
                     if config.has_autosave:
                         textbutton _("{#auto_page}A") action FilePage("auto")
@@ -674,6 +677,7 @@ screen file_slots(title):
                         textbutton "[page]" action FilePage(page)
 
                     textbutton _(">") action FilePageNext()
+                    key "save_page_next" action FilePageNext()
 
                 if config.has_sync:
                     if CurrentScreenName() == "save":
@@ -699,6 +703,7 @@ style slot_name_text is slot_button_text
 style page_label:
     xpadding 75
     ypadding 5
+    xalign 0.5
 
 style page_label_text:
     textalign 0.5
@@ -720,8 +725,8 @@ style slot_button_text:
 
 ## Preferences screen ##########################################################
 ##
-## The preferences screen allows the player to configure the game to better suit
-## themselves.
+## The preferences screen allows the player to configure the game to better
+## suit themselves.
 ##
 ## https://www.renpy.org/doc/html/screen_special.html#preferences
 
@@ -751,8 +756,8 @@ screen preferences():
                     textbutton _("After Choices") action Preference("after choices", "toggle")
                     textbutton _("Transitions") action InvertSelected(Preference("transitions", "toggle"))
 
-                ## Additional vboxes of type "radio_pref" or "check_pref" can be
-                ## added here, to add additional creator-defined preferences.
+                ## Additional vboxes of type "radio_pref" or "check_pref" can
+                ## be added here, to add additional creator-defined preferences.
 
             null height (4 * gui.pref_spacing)
 
@@ -910,8 +915,8 @@ screen history():
                         style "history_name"
                         substitute False
 
-                        ## Take the color of the who text from the Character, if
-                        ## set.
+                        ## Take the color of the who text from the Character,
+                        ## if set.
                         if "color" in h.who_args:
                             text_color h.who_args["color"]
 
@@ -1320,8 +1325,8 @@ screen nvl(dialogue, items=None):
 
             use nvl_dialogue(dialogue)
 
-        ## Displays the menu, if given. The menu may be displayed incorrectly if
-        ## config.narrator_menu is set to True.
+        ## Displays the menu, if given. The menu may be displayed incorrectly
+        ## if config.narrator_menu is set to True.
         for i in items:
 
             textbutton i.caption:
@@ -1350,8 +1355,8 @@ screen nvl_dialogue(dialogue):
                     id d.what_id
 
 
-## This controls the maximum number of NVL-mode entries that can be displayed at
-## once.
+## This controls the maximum number of NVL-mode entries that can be displayed
+## at once.
 define config.nvl_list_length = gui.nvl_list_length
 
 style nvl_window is default
@@ -1412,10 +1417,10 @@ style nvl_button_text:
 
 ## Bubble screen ###############################################################
 ##
-## The bubble screen is used to display dialogue to the player when using speech
-## bubbles. The bubble screen takes the same parameters as the say screen, must
-## create a displayable with the id of "what", and can create displayables with
-## the "namebox", "who", and "window" ids.
+## The bubble screen is used to display dialogue to the player when using
+## speech bubbles. The bubble screen takes the same parameters as the say
+## screen, must create a displayable with the id of "what", and can create
+## displayables with the "namebox", "who", and "window" ids.
 ##
 ## https://www.renpy.org/doc/html/bubble.html#bubble-screen
 
@@ -1436,6 +1441,10 @@ screen bubble(who, what):
 
         text what:
             id "what"
+
+        default ctc = None
+        showif ctc:
+            add ctc
 
 style bubble_window is empty
 style bubble_namebox is empty
@@ -1518,10 +1527,8 @@ screen quick_menu():
     if quick_menu:
 
         hbox:
+            style "quick_menu"
             style_prefix "quick"
-
-            xalign 0.5
-            yalign 1.0
 
             textbutton _("Back") action Rollback()
             textbutton _("Skip") action Skip() alternate Skip(fast=True, confirm=True)
@@ -1560,6 +1567,10 @@ style game_menu_navigation_frame:
 style game_menu_content_frame:
     variant "small"
     top_margin 0
+
+style game_menu_viewport:
+    variant "small"
+    xsize 1305
 
 style pref_vbox:
     variant "small"

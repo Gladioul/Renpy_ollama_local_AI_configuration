@@ -65,6 +65,7 @@ You can do some settings on the output tokens and choose your model on the scryp
 ## Tips and Tricks
 
 -Use auto to avoid spaming clicks to know when the response has been served
+-Put the auto setting bar below mid to get a more fluid conversation
 
 -Put the auto setting bar below mid to get a more fluid conversation
 
