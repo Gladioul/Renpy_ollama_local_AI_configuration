@@ -10,17 +10,22 @@ This ren'py project is a functional concept of how using ren'py connected to oll
 
 ###  Option A:
 1. Download only the releases .zip, they are on the Releases section in the right. Download only the one of your SO (Only tested on Windows)
-2. Download ollama and download the model via ollama
-3. Run the model on Ollama 
+2. Download ollama and download gemma3:1b via ollama
+If done properly:
+![Ollama](pics/Ollama.png)
+3. Run Ollama 
 4. Start the .exe
 5. Start the game, and YOU GOT IT
+
 
 ### Option B:
 1. Download this project and move to your folder where the other renpy projects are stored or create a new one and overwrite it with this one (Other way is only changing the scrypt.rpy file)
    To download you can go to the button Code-> Download Zip or use git.
-3. Download ollama and download the model via ollama
+3. Download ollama and download gemma3:1b via ollama
+If done properly:
+![Ollama](pics/Ollama.png)
 4. Run the model on Ollama 
-5. Launch the project
+5. Launch the project in Ren'py
 6. Start the game, and YOU GOT IT
    
 ## Important settings
@@ -52,7 +57,7 @@ The run the renpy project
 
 You can add a 'base prompt' by addig the tokens via code on scrypt.rpy it can give you:
 * Personality for your character
-* Limit the number of words of the response (It is already implemented to fit in the chatter box
+* Limit the number of words of the response (It is already implemented to fit in the chatter box)
 
 You can do some settings on the output tokens and choose your model on the scrypt.rpy
 
