@@ -59,26 +59,58 @@ You can do some settings on the output tokens and choose your model on the scryp
 
 
 ## ¿Future updates?
--Translating text on the screenshoots to English and some text that is not in English
 
--
+-Check typos and grammar
 
--Do some cleaning on the Files
+-Create a development journal
+
+-Merge v0.2
+
+-Specify the LICENSE
+
+-Digging into settings of the ollama side of the code
+
+-put on other .py the ollama part to improve readibilty
+
+-Create a icon for the program and the repo
+
+-Add the chance to input personality to the prompts
+
+-Explain that is not necesary to use ollam via cmd
+
+-Add a diaologue function for multiple characters controlled by the model talk between them ¿Other repo?
+
+-¿Logo for the repo?
+
+-¿Create a default personality and look for our MC?
+
+-¿Themed background?
+
+-TTS?
+
+-Do some cleaning on the Files 
+
+-Display the 1.0 version on the Ren'py forum ¿Also on Reddit?
 
 -Add some style to the program (It's pretty rough):
 Image for the girl
 Not use the default UI
-Beurify the menu
+Beutify the menu
 
--Program that if the response is too bif for the dialogue box, put it on the next dialogue box (Feaseable)
+-More comments on the code
 
 -Upgrading this Wiki, after more testing
 
 -Integrate transformers or ollama on the renpy project to have a stand alone build to use locally
 
--Better response time, this can be tough I see other webUI struggling with this
-
 -Add more AI tools (This one is greedy)
+
+-Better response time **Done** **0.2** (Is explained on tips and tricks)
+
+-Program that if the response is too big for the dialogue box, put it on the next dialogue box (Feaseable) **Done** **0.2**
+
+-Translating text on the screenshoots to English and some text that is not in English **Done** **0.2**
+s
 
 ## Trouble shoothing
 
