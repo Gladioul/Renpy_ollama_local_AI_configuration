@@ -1,3 +1,7 @@
+<div style="text-align: center;">
+  <img src="pics/logo.png" alt="Descripción" width="400"/>
+</div>
+
 ## ¿Dreaming to create a ChatBot using Ren'py as your UI?
 
 This ren'py project is a functional concept of how using ren'py connected to ollama.cpp could bring a nice full local Chatbot, this repo provides a project of renpy to customize it and the project build.
