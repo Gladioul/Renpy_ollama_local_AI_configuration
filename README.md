@@ -66,8 +66,6 @@ You can do some settings on the output tokens and choose your model on the scryp
 
 -Merge v0.2
 
--Specify the LICENSE
-
 -Digging into settings of the ollama side of the code
 
 -put on other .py the ollama part to improve readibilty
@@ -110,12 +108,27 @@ Beutify the menu
 -Program that if the response is too big for the dialogue box, put it on the next dialogue box (Feaseable) **Done** **0.2**
 
 -Translating text on the screenshoots to English and some text that is not in English **Done** **0.2**
-s
+
+-Specify the LICENSE **Done** **0.3**
 
 ## Trouble shoothing
 
 -Waiting Feedback!!!!
 
+
+##  Resources:
+
+This project is based in Ren'py as the UI and graphic engine
+
+https://www.renpy.org/
+
+And requires the use of Ollama to serve and process the prompts
+
+https://ollama.com/
+
+Gemma3:1b is only  a option between other great models lbut is a good  for it's efficiency, conversational skills and SFW parameters. Its adviced that is not allowed to distribute gemma3:1b without Google consent, beacause its weights are clouse source. I will explore in the future other altervatives that allows to be shipped in the game files.
+
+https://huggingface.co/google/gemma-3-1b-it
 
 ##  Related Projects:
 
