@@ -1,4 +1,4 @@
-﻿## This file contains options that can be changed to customize your game.
+## This file contains options that can be changed to customize your game.
 ##
 ## Lines beginning with two '#' marks are comments, and you shouldn't uncomment
 ## them. Lines beginning with a single '#' mark are commented-out code, and you
@@ -12,8 +12,9 @@
 ##
 ## The _() surrounding the string marks it as eligible for translation.
 
-define config.name = _("Renpy Ollama")
+define config.name = ("ROL:Ren'py Ollama Local")
 
+#{color=#ffffff}{size=40}ROL:{/size}{/color}\n{color=#ffffff}{size=35}Ren'py Ollama Local{/size}{/color}
 
 ## Determines if the title given above is shown on the main menu screen. Set
 ## this to False to hide the title.
@@ -23,7 +24,7 @@ define gui.show_name = True
 
 ## The version of the game.
 
-define config.version = "1.0"
+define config.version = ("V0.2")
 
 
 ## Text that is placed on the game's about screen. Place the text between the
