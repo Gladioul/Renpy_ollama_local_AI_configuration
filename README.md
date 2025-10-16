@@ -73,8 +73,6 @@ You can do some settings on the output tokens and choose your model on the scryp
 
 -Create a development journal
 
--Merge v0.2
-
 -Digging into settings of the ollama side of the code
 
 -put on other .py the ollama part to improve readibilty
@@ -91,13 +89,11 @@ You can do some settings on the output tokens and choose your model on the scryp
 
 -¿Create a default personality and look for our MC?
 
--¿Themed background?
-
 -TTS?
 
 -Do some cleaning on the Files 
 
--Display the 1.0 version on the Ren'py forum ¿Also on Reddit?
+-Display the 1.0 version on the Ren'py  and itch.io forum ¿Also on Reddit?
 
 -Add some style to the program (It's pretty rough):
 Image for the girl
@@ -119,6 +115,10 @@ Beutify the menu
 -Translating text on the screenshoots to English and some text that is not in English **Done** **0.2**
 
 -Specify the LICENSE **Done** **0.3**
+
+-Start Ollama via code **Done** **0.3**
+
+-¿Themed background? **0.3**
 
 ## Trouble shoothing
 
