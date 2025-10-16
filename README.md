@@ -1,6 +1,6 @@
-<div style="text-align: center;">
+<p align="center">
   <img src="pics/logo.png" alt="Descripción" width="400"/>
-</div>
+</p>
 
 ## ¿Dreaming to create a ChatBot using Ren'py as your UI?
 
