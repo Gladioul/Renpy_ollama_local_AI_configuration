@@ -5,6 +5,21 @@ init python:
     # Importar funciones desde el módulo ollama que está en la carpeta game
     from ollama import generar_con_ollama, dividir_en_bloques
 
+    def dividir_en_bloques(texto, limite=32):
+        """
+        Divide el texto en bloques consecutivos de máximo 'limite' palabras.
+        Los bloques intermedios terminan con '...' para indicar que continúa.
+        """
+        palabras = texto.split()
+        bloques = []
+        for i in range(0, len(palabras), limite):
+            bloque = palabras[i:i+limite]
+            if i + limite < len(palabras):
+                bloques.append(" ".join(bloque) + "...")
+            else:
+                bloques.append(" ".join(bloque))
+        return bloques
+
 label start:
     scene bg room
     show eileen happy

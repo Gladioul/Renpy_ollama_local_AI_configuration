@@ -37,8 +37,8 @@ This project is using  gemma3:1b, provides good performance for 'low' system req
 
 You have to start ollama.exe (If you don't have config to boot on start)
 
-Use cmd to run the model (Example: ollama run gemma3:1b)
-![Ollama](pics/Ollama.png)
+
+
 
 The run the renpy project
 
@@ -49,7 +49,13 @@ The run the renpy project
 ![Pics](pics/Output.png)
 
 
+## Performace
 
+Is quite good (5 seconds to generate)
+
+Test de context limit, on what extent is a problem and find opctions to expand it 
+
+If the context is a problem implement a function to refresh de model
 
 ## Customaization 
 
@@ -62,6 +68,8 @@ You can do some settings on the output tokens and choose your model on the scryp
 ## Tips and Tricks
 
 -Use auto to avoid spamming clicks to know when the response has been served
+-Put the auto setting bar below mid to get a more fluid conversation
+
 -Put the auto setting bar below mid to get a more fluid conversation
 
 
@@ -143,5 +151,3 @@ https://huggingface.co/google/gemma-3-1b-it
 ##  Related Projects:
 
 https://github.com/Calandiel/llama-renpy/blob/master/script.rpy
-
-
