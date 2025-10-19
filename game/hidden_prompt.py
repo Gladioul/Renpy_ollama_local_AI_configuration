@@ -4,8 +4,10 @@ HIDDEN_PROMPT_FILE = "hidden_prompt.txt"
 DEFAULT_HIDDEN_PROMPT = """You are an expert role-play facilitator. 
 Adopt and maintain a coherent personality based on the user's request. 
 Use present tense, sensory details, and concrete actions to enhance immersion. 
-Ask clarifying questions when necessary and adapt the tone to the given context.
-Your name is Clara"""
+Ask clarifying questions when necessary and adapt the tone to the given context."""
+
+PERSONALITY_FILE = "personality.txt"
+DEFAULT_PERSONALITY = ""
 
 def _hidden_prompt_path(filename=None):
     base = os.path.dirname(__file__) or os.getcwd()
@@ -37,14 +39,44 @@ def save_hidden_prompt(text, filename=None):
     except Exception as e:
         return False, str(e)
 
+def load_personality(filename=None):
+    """
+    Reads the personality from a .txt file in the same directory as the module.
+    Returns DEFAULT_PERSONALITY if the file does not exist or an error occurs.
+    """
+    path = _hidden_prompt_path(filename or PERSONALITY_FILE)
+    try:
+        with open(path, "r", encoding="utf-8") as f:
+            content = f.read().strip()
+            return content if content else DEFAULT_PERSONALITY
+    except Exception:
+        return DEFAULT_PERSONALITY
+
+def save_personality(text, filename=None):
+    """
+    Saves/updates the personality in the .txt file.
+    Returns (True, None) on success or (False, error_message) on failure.
+    """
+    path = _hidden_prompt_path(filename or PERSONALITY_FILE)
+    try:
+        with open(path, "w", encoding="utf-8") as f:
+            f.write(text or "")
+        return True, None
+    except Exception as e:
+        return False, str(e)
+
 def _merge_hidden_prompt(user_prompt):
     """
     Combines the hidden prompt with the user's prompt.
     The hidden prompt is placed at the beginning, separated by a clear divider.
     """
     hidden = load_hidden_prompt()
-    if not hidden:
+    personality = load_personality()
+    combined_base = hidden.strip()
+    if personality and personality.strip():
+        combined_base += "\n\n---\n\n" + personality.strip()
+    if not combined_base:
         return user_prompt or ""
     if not (user_prompt and user_prompt.strip()):
-        return hidden.strip()
-    return hidden.strip() + "\n\n---\n\nUsuario:\n" + user_prompt.strip()
+        return combined_base
+    return combined_base + "\n\n---\n\nUsuario:\n" + user_prompt.strip()

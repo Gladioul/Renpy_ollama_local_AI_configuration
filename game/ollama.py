@@ -4,7 +4,7 @@ import socket
 import time
 import shutil
 import os
-from hidden_prompt import load_hidden_prompt, save_hidden_prompt, _merge_hidden_prompt
+from hidden_prompt import load_hidden_prompt, save_hidden_prompt, _merge_hidden_prompt  
 
 OLLAMA_URL = "http://localhost:11434/api/generate"
 MODEL_NAME = "gemma3:1b"
