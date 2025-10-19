@@ -13,6 +13,59 @@ OLLAMA_CMD = ["ollama", "serve"]
 # Tiempo máximo a esperar a que el servicio esté arriba (segundos)
 OLLAMA_STARTUP_TIMEOUT = 10
 
+# -----------------------
+# Prompt oculto en fichero
+# -----------------------
+HIDDEN_PROMPT_FILE = "hidden_prompt.txt"
+DEFAULT_HIDDEN_PROMPT = """You are an expert role-play facilitator. 
+Adopt and maintain a coherent personality based on the user's request. 
+Use present tense, sensory details, and concrete actions to enhance immersion. 
+Ask clarifying questions when necessary and adapt the tone to the given context.
+Your name is Clara"""
+
+def _hidden_prompt_path(filename=None):
+    base = os.path.dirname(__file__) or os.getcwd()
+    return os.path.join(base, filename or HIDDEN_PROMPT_FILE)
+
+def load_hidden_prompt(filename=None):
+    """
+    Lee el prompt oculto desde un .txt en la misma carpeta del módulo.
+    Devuelve DEFAULT_HIDDEN_PROMPT si no existe o hay error.
+    """
+    path = _hidden_prompt_path(filename)
+    try:
+        with open(path, "r", encoding="utf-8") as f:
+            content = f.read().strip()
+            return content if content else DEFAULT_HIDDEN_PROMPT
+    except Exception:
+        return DEFAULT_HIDDEN_PROMPT
+
+def save_hidden_prompt(text, filename=None):
+    """
+    Guarda/actualiza el prompt oculto en el .txt.
+    Devuelve (True, None) o (False, error_message).
+    """
+    path = _hidden_prompt_path(filename)
+    try:
+        with open(path, "w", encoding="utf-8") as f:
+            f.write(text or "")
+        return True, None
+    except Exception as e:
+        return False, str(e)
+
+def _merge_hidden_prompt(user_prompt):
+    """
+    Combina el prompt oculto y el prompt del usuario.
+    El prompt oculto va al inicio y se separa con un separador claro.
+    """
+    hidden = load_hidden_prompt()
+    if not hidden:
+        return user_prompt or ""
+    if not (user_prompt and user_prompt.strip()):
+        return hidden.strip()
+    # Separador legible para facilitar depuración y lectura
+    return hidden.strip() + "\n\n---\n\nUsuario:\n" + user_prompt.strip()
+
 def _is_ollama_listening(host="localhost", port=11434, timeout=1):
     try:
         with socket.create_connection((host, port), timeout):
@@ -53,9 +106,13 @@ def generar_con_ollama(prompt, timeout=20):
     ok, err = _ensure_ollama_running()
     if not ok:
         return "[Error: {}]".format(err)
+
+    # Combinar con prompt oculto antes de hacer la petición
+    combined_prompt = _merge_hidden_prompt(prompt)
+
     payload = {
         "model": MODEL_NAME,
-        "prompt": prompt,
+        "prompt": combined_prompt,
         "stream": False
     }
     try:
