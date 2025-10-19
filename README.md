@@ -13,20 +13,18 @@ This ren'py project is a functional concept of how using ren'py connected to oll
 2. Download ollama and download gemma3:1b via ollama
 If done properly:
 ![Ollama](pics/Ollama.png)
-3. Run Ollama 
-4. Start the .exe
-5. Start the game, and YOU GOT IT
+3. Start the .exe
+4. Start the game, and YOU GOT IT
 
 
 ### Option B:
 1. Download this project and move to your folder where the other renpy projects are stored or create a new one and overwrite it with this one (Other way is only changing the scrypt.rpy file)
    To download you can go to the button Code-> Download Zip or use git.
-3. Download ollama and download gemma3:1b via ollama
+2. Download ollama and download gemma3:1b via ollama
 If done properly:
 ![Ollama](pics/Ollama.png)
-4. Run the model on Ollama 
-5. Launch the project in Ren'py
-6. Start the game, and YOU GOT IT
+3. Launch the project in Ren'py
+4. Start the game, and YOU GOT IT
    
 ## Important settings
 
@@ -55,15 +53,15 @@ The run the renpy project
 
 ## Customaization 
 
-You can add a 'base prompt' by addig the tokens via code on scrypt.rpy it can give you:
-* Personality for your character
-* Limit the number of words of the response (It is already implemented to fit in the chatter box)
+There is a base prompt to improve the answers of the MC, it is stored on hidden_prompt.txt and can be modified, the default is focused on make the responses more role-play. It is implemented on hidden_prompt.py
+
+Also you can add character background on personality.txt. it adds to the base_prompt
 
 You can do some settings on the output tokens and choose your model on the scrypt.rpy
 
 ## Tips and Tricks
 
--Use auto to avoid spaming clicks to know when the response has been served
+-Use auto to avoid spamming clicks to know when the response has been served
 -Put the auto setting bar below mid to get a more fluid conversation
 
 
@@ -75,8 +73,6 @@ You can do some settings on the output tokens and choose your model on the scryp
 
 -Digging into settings of the ollama side of the code
 
--put on other .py the ollama part to improve readibilty
-
 -Create a icon for the program and the repo
 
 -Add the chance to input personality to the prompts
@@ -85,7 +81,6 @@ You can do some settings on the output tokens and choose your model on the scryp
 
 -Add a diaologue function for multiple characters controlled by the model talk between them ¿Other repo?
 
--¿Logo for the repo?
 
 -¿Create a default personality and look for our MC?
 
@@ -119,6 +114,12 @@ Beutify the menu
 -Start Ollama via code **Done** **0.3**
 
 -¿Themed background? **0.3**
+
+-Start Ollama via code on python **0.3**
+
+-¿Logo for the repo? **0.3**
+
+-put on other .py the ollama part to improve readibilty **0.3**
 
 ## Trouble shoothing
 
