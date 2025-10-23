@@ -71,6 +71,14 @@ You can do some settings on the output tokens and choose your model on the scryp
 
 ## ¿Future updates?
 
+-Crear ramas: Con binario y sin binario
+
+-Opción con binarios de ollama y sin
+
+-Opción de usar los modelos del sistema y de fuera
+
+-Dejar comentado la opción de usar 
+
 -Improve performance 
 
 -Check typos and grammar
