@@ -35,12 +35,7 @@ This project is using  gemma3:1b, provides good performance for 'low' system req
 
 ## I have all set up ¿How I run it?
 
-You have to start ollama.exe (If you don't have config to boot on start)
-
-
-
-
-The run the renpy project
+You are ready to go
 
 ## Results
 
@@ -68,6 +63,7 @@ You can do some settings on the output tokens and choose your model on the scryp
 ## Tips and Tricks
 
 -Use auto to avoid spamming clicks to know when the response has been served
+
 -Put the auto setting bar below mid to get a more fluid conversation
 
 -Put the auto setting bar below mid to get a more fluid conversation
@@ -75,11 +71,11 @@ You can do some settings on the output tokens and choose your model on the scryp
 
 ## ¿Future updates?
 
+-Improve performance 
+
 -Check typos and grammar
 
 -Create a development journal
-
--Digging into settings of the ollama side of the code
 
 -Create a icon for the program and the repo
 
@@ -88,7 +84,6 @@ You can do some settings on the output tokens and choose your model on the scryp
 -Explain that is not necesary to use ollam via cmd
 
 -Add a diaologue function for multiple characters controlled by the model talk between them ¿Other repo?
-
 
 -¿Create a default personality and look for our MC?
 
@@ -128,6 +123,10 @@ Beutify the menu
 -¿Logo for the repo? **0.3**
 
 -put on other .py the ollama part to improve readibilty **0.3**
+
+-Digging into settings of the ollama side of the code  **0.4**
+
+-Integrate ollama binaries on the renpy project to have a stand alone build to use locally **0.4**
 
 ## Trouble shoothing
 
