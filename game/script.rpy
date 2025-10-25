@@ -41,31 +41,29 @@ label chat:
 
 label descargar_modelo_label:
     python:
-        from ollama import modelo_disponible, descargar_modelo_simple, MODEL_NAME
+        from ollama import modelo_disponible, descargar_modelo_async, MODEL_NAME
         if modelo_disponible():
             _descarga_exitosa = True
             _descarga_error = ""
         else:
-            _descarga_exitosa = descargar_modelo_simple(MODEL_NAME)
-            try:
-                from ollama import descargar_modelo_simple as dms
-                _descarga_error = getattr(dms, 'last_error', "")
-            except Exception:
-                _descarga_error = ""
+            # Usar una variable para capturar el resultado del hilo
+            resultado = {"success": None, "error": None}
+            def on_finish(success, error):
+                resultado["success"] = success
+                resultado["error"] = error
+            descargar_modelo_async(MODEL_NAME, on_finish)
+            # Esperar a que termine el hilo (máx 60s)
+            import time
+            timeout = 60
+            waited = 0
+            while resultado["success"] is None and waited < timeout:
+                time.sleep(0.2)
+                waited += 0.2
+            _descarga_exitosa = resultado["success"]
+            _descarga_error = resultado["error"] or ""
     if not _descarga_exitosa:
         e "No se pudo descargar el modelo. Error: [_descarga_error] Por favor, revisa tu conexión, el nombre del modelo y que ollama.exe esté en bin/."
         return
     else:
         e "¡Modelo descargado correctamente!"
         return
-
-screen barra_progreso_ollama():
-    frame:
-        xalign 0.5
-        yalign 0.5
-        has vbox
-        text "[store._ollama_status]" xalign 0.5
-        text "Descargando modelo... [store._ollama_progress]%" xalign 0.5
-        bar value store._ollama_progress range 100 xmaximum 400 xalign 0.5
-        if store._ollama_error_msg:
-            text "[store._ollama_error_msg]" color "#f44" xalign 0.5
