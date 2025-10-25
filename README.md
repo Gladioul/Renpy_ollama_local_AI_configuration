@@ -9,22 +9,24 @@ This ren'py project is a functional concept of how using ren'py connected to oll
 ##  Set up
 
 ###  Option A:
+¿Is posible to release the binaries on the release version
 1. Download only the releases .zip, they are on the Releases section in the right. Download only the one of your SO (Only tested on Windows)
-2. Download ollama and download gemma3:1b via ollama
+2. Download ollama and install
+3. Look for the folder where ollama was installed, copy and paste the content on game/bin
 If done properly:
 ![Ollama](pics/Ollama.png)
-3. Start the .exe
-4. Start the game, and YOU GOT IT
+4. Start the .exe
+5. Start the game, and YOU GOT IT
 
 
 ### Option B:
 1. Download this project and move to your folder where the other renpy projects are stored or create a new one and overwrite it with this one (Other way is only changing the scrypt.rpy file)
    To download you can go to the button Code-> Download Zip or use git.
-2. Download ollama and download gemma3:1b via ollama
+2. Download ollama and install
 If done properly:
 ![Ollama](pics/Ollama.png)
-3. Launch the project in Ren'py
-4. Start the game, and YOU GOT IT
+4. Launch the project in Ren'py
+5. Start the game, and YOU GOT IT
    
 ## Important settings
 
@@ -70,6 +72,10 @@ You can do some settings on the output tokens and choose your model on the scryp
 
 
 ## ¿Future updates?
+
+-Auto download and extract ollama if necesary
+
+-Implemenmt qwen on the release version
 
 -Crear ramas: Con binario y sin binario
 
