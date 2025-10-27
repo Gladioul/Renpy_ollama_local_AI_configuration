@@ -4,14 +4,15 @@ define p = Character('Me')
 image forest = "forest.png"
 
 init python:
-    # Importar funciones desde el módulo ollama que está en la carpeta game
-    from ollama import generar_con_ollama, dividir_en_bloques
+    # Import functions from the module ollama located in the game folder
+    from script_functions import split_into_blocks
+    from ollama import generate_with_ollama, is_model_available, download_model_async
 
 label start:
     scene forest
     show eileen happy
     $ history = []
-    call descargar_modelo_label
+    call download_model_label
 
 label chat:
     e "Write something and I talk back. Leave it empty to exit."
@@ -23,47 +24,47 @@ label chat:
         return
 
     p "[user]"
-    $ reply = generar_con_ollama(user)
+    $ reply = generate_with_ollama(user)
 
     python:
         for line in reply.splitlines():
             if line.strip():
-                bloques = dividir_en_bloques(line)
-                for bloque in bloques:
+                blocks = split_into_blocks(line)
+                for block in blocks:
                     # Escape square brackets so Ren'Py doesn't try to evaluate
                     # inline substitutions like [Error: ...]. Store the original
                     # text in history but show the escaped version.
-                    safe_bloque = bloque.replace('[', '[[').replace(']', ']]')
-                    renpy.say(e, safe_bloque)
-                    history.append((user, bloque))  # Guardar cada bloque mostrado
+                    safe_block = block.replace('[', '[[').replace(']', ']]')
+                    renpy.say(e, safe_block)
+                    history.append((user, block))  # Save each displayed block
 
     jump chat
 
-label descargar_modelo_label:
+label download_model_label:
     python:
-        from ollama import modelo_disponible, descargar_modelo_async, MODEL_NAME
-        if modelo_disponible():
-            _descarga_exitosa = True
-            _descarga_error = ""
+        from ollama import is_model_available, download_model_async, MODEL_NAME
+        if is_model_available():
+            _download_successful = True
+            _download_error = ""
         else:
-            # Usar una variable para capturar el resultado del hilo
-            resultado = {"success": None, "error": None}
+            # Use a variable to capture the thread result
+            result = {"success": None, "error": None}
             def on_finish(success, error):
-                resultado["success"] = success
-                resultado["error"] = error
-            descargar_modelo_async(MODEL_NAME, on_finish)
-            # Esperar a que termine el hilo (máx 60s)
+                result["success"] = success
+                result["error"] = error
+            download_model_async(MODEL_NAME, on_finish)
+            # Wait for the thread to finish (max 60s)
             import time
             timeout = 60
             waited = 0
-            while resultado["success"] is None and waited < timeout:
+            while result["success"] is None and waited < timeout:
                 time.sleep(0.2)
                 waited += 0.2
-            _descarga_exitosa = resultado["success"]
-            _descarga_error = resultado["error"] or ""
-    if not _descarga_exitosa:
-        e "No se pudo descargar el modelo. Error: [_descarga_error] Por favor, revisa tu conexión, el nombre del modelo y que ollama.exe esté en bin/."
+            _download_successful = result["success"]
+            _download_error = result["error"] or ""
+    if not _download_successful:
+        e "Could not download the model. Error: [_download_error] Please check your connection, the model name, and that ollama.exe is in bin/."
         return
     else:
-        e "¡Modelo descargado correctamente!"
+        e "Model downloaded successfully!"
         return

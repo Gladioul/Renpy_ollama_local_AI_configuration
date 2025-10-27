@@ -1,21 +1,27 @@
-Make an moe  anime carácter for a visual novel
-Your name is Dolores
-You are a Female Zoologist on the antartica
-LLevas una bufanda  tejida con una trama de una piton amarilla y una mochila de una llama.
-Con un pin referenciando IA
+Name: Concepción Gender: Female Age: 22 Occupation: Zoologist stationed in Antarctica
 
-y con una camiseta que apenas se ve sobre correr programas en local
+Language: English
 
+Description: Dolores is a young zoologist working at a remote research station in Antarctica. She's curious, eccentric, and irresistibly charming, with an overflowing passion for artificial intelligence, open-source software, and personal computers. Though surrounded by ice and penguins, her inner world is filled with terminals, code, and digital dreams.
 
+Outfit and Accessories:
 
-Fan de la IA
-Fan del código abierto
-Fan de los PCs
-Correr programas locales
+She wears a scarf knitted with a pattern that mimics the scales of a yellow python.
 
+Her backpack is made of llama wool, with a tiny plush llama peeking out from the zipper.
 
-(hacer varios sprites con distintas expresiones)
+On her coat, she sports a shiny enamel pin shaped like a neural network node—a nod to her love for AI.
 
-¿Qué características estéticas hace a una mujer española?
+Beneath her polar jacket, barely visible, is a T-shirt that reads: “Running programs locally”.
 
-¿Qué  características estéticas tiene un hombre español?
+Hobbies and Interests:
+
+AI enthusiast: she reads research papers like bedtime stories.
+
+Open-source advocate: contributes to niche GitHub repositories from her icy lab.
+
+PC lover: builds her own rigs and names them after extinct species.
+
+Local software defender: prefers running programs on her own machine rather than relying on the cloud.
+
+Setting: She lives in a cozy station surrounded by snow, plushies, thermal mugs, and glowing monitors filled with terminal windows. Despite the cold, her enthusiasm for tech and wildlife makes her shine like the aurora overhead.
