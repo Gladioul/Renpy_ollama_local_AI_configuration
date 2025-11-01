@@ -10,29 +10,9 @@ image forest = "forest.png"
 image concepcion = Transform("images/concepcion.png", xalign=0.5, yalign=0.5, zoom=0.5625)
 
 init python:
-<<<<<<< HEAD
-    # Importar funciones desde el módulo ollama que está en la carpeta game
-    from ollama import generar_con_ollama, dividir_en_bloques
-
-    def dividir_en_bloques(texto, limite=32):
-        """
-        Divide el texto en bloques consecutivos de máximo 'limite' palabras.
-        Los bloques intermedios terminan con '...' para indicar que continúa.
-        """
-        palabras = texto.split()
-        bloques = []
-        for i in range(0, len(palabras), limite):
-            bloque = palabras[i:i+limite]
-            if i + limite < len(palabras):
-                bloques.append(" ".join(bloque) + "...")
-            else:
-                bloques.append(" ".join(bloque))
-        return bloques
-=======
     # Import functions from the module ollama located in the game folder
     from script_functions import split_into_blocks
     from ollama import generate_with_ollama, is_model_available, download_model_async
->>>>>>> V0.4
 
 label start:
     scene forest

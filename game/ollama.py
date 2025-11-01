@@ -2,19 +2,6 @@ import requests
 import subprocess
 import socket
 import time
-<<<<<<< HEAD
-import shutil
-import os
-from hidden_prompt import load_hidden_prompt, save_hidden_prompt, _merge_hidden_prompt  
-
-OLLAMA_URL = "http://localhost:11434/api/generate"
-MODEL_NAME = "gemma3:1b"
-# Comando para arrancar Ollama si está disponible en PATH.
-# Puedes cambiar a ['ollama', 'serve'] u otra variante según tu instalación.
-OLLAMA_CMD = ["ollama", "serve"]
-# Tiempo máximo a esperar a que el servicio esté arriba (segundos)
-OLLAMA_STARTUP_TIMEOUT = 10
-=======
 import os
 from hidden_prompt import  _merge_hidden_prompt  
 
@@ -149,7 +136,6 @@ def download_model_async(model_name=None, on_finish=None, on_progress=None):
     t = threading.Thread(target=worker)
     t.daemon = True
     t.start()
->>>>>>> V0.4
 
 def _is_ollama_listening(host="localhost", port=11434, timeout=1):
     try:
@@ -159,15 +145,6 @@ def _is_ollama_listening(host="localhost", port=11434, timeout=1):
         return False
 
 def _start_ollama(cmd=None):
-<<<<<<< HEAD
-    cmd = cmd or OLLAMA_CMD
-    # Verificar disponibilidad del ejecutable
-    if shutil.which(cmd[0]) is None:
-        return False, "ollama executable not found in PATH"
-    try:
-        # Lanzar en background, silenciar salida
-        subprocess.Popen(cmd, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL, cwd=os.getcwd())
-=======
     cmd = cmd or get_ollama_cmd()
     # Check that the local executable exists
     if not os.path.isfile(cmd[0]):
@@ -211,22 +188,10 @@ def _start_ollama(cmd=None):
             env=env,
             creationflags=subprocess.CREATE_NO_WINDOW
         )
->>>>>>> V0.4
         return True, None
     except Exception as e:
         return False, str(e)
 
-<<<<<<< HEAD
-def _ensure_ollama_running(timeout=OLLAMA_STARTUP_TIMEOUT):
-    # Si ya hay un listener, OK
-    if _is_ollama_listening():
-        return True, None
-    # Intentar arrancar
-    started, err = _start_ollama()
-    if not started:
-        return False, "could not start ollama: {}".format(err)
-    # Esperar hasta que responda o se agote el timeout
-=======
 def _ensure_ollama_running(timeout=None):
     timeout = timeout or 10  # Default timeout if not provided
     # If there is already a listener, OK
@@ -237,7 +202,6 @@ def _ensure_ollama_running(timeout=None):
     if not started:
         return False, "could not start ollama: {}".format(err)
     # Wait until it responds or the timeout expires
->>>>>>> V0.4
     deadline = time.time() + timeout
     while time.time() < deadline:
         if _is_ollama_listening():
@@ -245,22 +209,13 @@ def _ensure_ollama_running(timeout=None):
         time.sleep(0.5)
     return False, "timeout waiting for ollama to start"
 
-<<<<<<< HEAD
-def generar_con_ollama(prompt, timeout=20):
-    # Asegurarse de que el servicio esté activo antes de la petición
-=======
 def generate_with_ollama(prompt, timeout=20):
     # Ensure the service is active before making the request
->>>>>>> V0.4
     ok, err = _ensure_ollama_running()
     if not ok:
         return "[Error: {}]".format(err)
 
-<<<<<<< HEAD
-    # Combinar con prompt oculto antes de hacer la petición
-=======
     # Combine with hidden prompt before making the request
->>>>>>> V0.4
     combined_prompt = _merge_hidden_prompt(prompt)
 
     payload = {
@@ -270,28 +225,6 @@ def generate_with_ollama(prompt, timeout=20):
     }
     try:
         resp = requests.post(OLLAMA_URL, json=payload, timeout=timeout)
-<<<<<<< HEAD
-        resp.raise_for_status()
-        data = resp.json()
-        return data.get("response") or data.get("text") or str(data)
-    except Exception as e:
-        return "[Error: {}]".format(e)
-
-def dividir_en_bloques(texto, limite=32):
-    """
-    Divide el texto en bloques consecutivos de máximo 'limite' palabras.
-    Los bloques intermedios terminan con '...' para indicar que continúa.
-    """
-    palabras = texto.split()
-    bloques = []
-    for i in range(0, len(palabras), limite):
-        bloque = palabras[i:i+limite]
-        if i + limite < len(palabras):
-            bloques.append(" ".join(bloque) + "...")
-        else:
-            bloques.append(" ".join(bloque))
-    return bloques
-=======
         if resp.status_code == 404:
             return "[Error: The requested model is not available in Ollama or the endpoint does not exist. Ensure that the model 'gemma3:1b' is loaded and available.]"
         resp.raise_for_status()
@@ -302,4 +235,3 @@ def dividir_en_bloques(texto, limite=32):
     except Exception as e:
         return "[Unexpected error: {}]".format(e)
 
->>>>>>> V0.4
