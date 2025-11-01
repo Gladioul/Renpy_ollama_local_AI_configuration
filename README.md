@@ -5,13 +5,13 @@
 ## Try Now
 A .exe executable to try the project easy.
 
+Click the image to go to the Releases page and download the executable:
+
 <p align="center">
   <a href="https://drive.google.com/file/d/1qRh1njX7TmcoO7UUeTSy7nGITLpCaIah/view?usp=sharing">
     <img src="pics/download.png" alt="Try Now — Download" width="200"/>
   </a>
 </p>
-
-[![Try Now — Download](pics/download.png)](https://drive.google.com/file/d/1qRh1njX7TmcoO7UUeTSy7nGITLpCaIah/view?usp=sharing)
 
 
 
