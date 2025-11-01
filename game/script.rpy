@@ -1,7 +1,13 @@
-﻿define e = Character('Concepción')
+﻿define e = Character('Concepción', image='concepcion')
 define p = Character('Me')
 
 image forest = "forest.png"
+
+# Concepción is a portrait image (720x1920). The game resolution is 1920x1080
+# We scale the image so its height matches the screen height (1080px).
+# Scale factor = 1080 / 1920 = 0.5625 -> width becomes 720 * 0.5625 = 405px.
+# Using a Transform keeps the image centered vertically and horizontally.
+image concepcion = Transform("images/concepcion.png", xalign=0.5, yalign=0.5, zoom=0.5625)
 
 init python:
     # Import functions from the module ollama located in the game folder
@@ -10,9 +16,10 @@ init python:
 
 label start:
     scene forest
-    show eileen happy
+    # Show the protagonist image, scaled to screen height and centered
+    show concepcion
     $ history = []
-    call download_model_label
+    call download_model_label from _call_download_model_label
 
 label chat:
     e "Write something and I talk back. Leave it empty to exit."

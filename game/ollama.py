@@ -7,6 +7,7 @@ from hidden_prompt import  _merge_hidden_prompt
 
 OLLAMA_URL = "http://localhost:11434/api/generate"
 MODEL_NAME = "qwen:1.8b"
+OLLAMA_INSTALL_URL = "https://ollama.com/download/OllamaSetup.exe"
 
 # MODEL_NAME = "qwen3:1.7b"
 # MODEL_NAME = "gemma3:1b"
@@ -147,7 +148,31 @@ def _start_ollama(cmd=None):
     cmd = cmd or get_ollama_cmd()
     # Check that the local executable exists
     if not os.path.isfile(cmd[0]):
-        return False, f"ollama executable not found at {cmd[0]}"
+        # Try to download installer into bin if the bin folder is empty / missing.
+        try:
+            # import here to avoid circular imports at module import time
+            from .install_ollama import ensure_ollama_installed
+        except Exception:
+            try:
+                # fallback to relative import if run as script
+                from install_ollama import ensure_ollama_installed
+            except Exception:
+                return False, f"ollama executable not found at {cmd[0]}"
+
+        try:
+            gamedir = os.path.abspath(renpy.config.gamedir)
+            bin_dir = os.path.join(gamedir, "bin")
+            # Attempt to download the provided installer into bin if bin is empty.
+            ensure_ollama_installed(OLLAMA_INSTALL_URL, bin_dir=bin_dir)
+        except Exception:
+            # ignore errors in automatic download attempt; fall through to return message
+            pass
+
+        if not os.path.isfile(cmd[0]):
+            return False, (
+                f"ollama executable not found at {cmd[0]}. "
+                f"If an installer was downloaded to '{os.path.join(renpy.config.gamedir, 'bin')}', please run it manually to complete installation."
+            )
     # Set up local models folder
     models_dir = os.path.join(renpy.config.gamedir, "models")
     os.makedirs(models_dir, exist_ok=True)
