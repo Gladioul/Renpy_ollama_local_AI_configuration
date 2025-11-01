@@ -3,7 +3,10 @@
 </p>
 
 ## Try Now
-A .exe executable to try the proyect easy
+A .exe executable to try the project easy
+
+[![Try Now — Download](pics/download.png)](https://drive.google.com/file/d/1qRh1njX7TmcoO7UUeTSy7nGITLpCaIah/view?usp=sharing)
+Click the image to go to the Releases page and download the executable.
 
 
 ## ¿Dreaming to create a ChatBot using Ren'py as your UI?
