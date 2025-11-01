@@ -33,3 +33,10 @@ RenpyOllamaLocal.code-workspace
 
 # Ignore downloaded/installed models
 /game/models/
+<<<<<<< HEAD
+=======
+
+# Ignore user_game files
+/game/saves/*
+/game/cache/*
+>>>>>>> V0.4

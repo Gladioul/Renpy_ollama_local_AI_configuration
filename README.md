@@ -9,22 +9,38 @@ This ren'py project is a functional concept of how using ren'py connected to oll
 ##  Set up
 
 ###  Option A:
+¿Is posible to release the binaries on the release version
 1. Download only the releases .zip, they are on the Releases section in the right. Download only the one of your SO (Only tested on Windows)
-2. Download ollama and download gemma3:1b via ollama
+2. Download ollama and install
+3. Look for the folder where ollama was installed, copy and paste the content on game/bin
 If done properly:
 ![Ollama](pics/Ollama.png)
+<<<<<<< HEAD
 3. Start the .exe
 4. Start the game, and YOU GOT IT
+
+=======
+4. Start the .exe
+5. Start the game, and YOU GOT IT
+>>>>>>> V0.4
 
 
 ### Option B:
 1. Download this project and move to your folder where the other renpy projects are stored or create a new one and overwrite it with this one (Other way is only changing the scrypt.rpy file)
    To download you can go to the button Code-> Download Zip or use git.
+<<<<<<< HEAD
 2. Download ollama and download gemma3:1b via ollama
 If done properly:
 ![Ollama](pics/Ollama.png)
 3. Launch the project in Ren'py
 4. Start the game, and YOU GOT IT
+=======
+2. Download ollama and install
+If done properly:
+![Ollama](pics/Ollama.png)
+4. Launch the project in Ren'py
+5. Start the game, and YOU GOT IT
+>>>>>>> V0.4
    
 ## Important settings
 
@@ -35,12 +51,7 @@ This project is using  gemma3:1b, provides good performance for 'low' system req
 
 ## I have all set up ¿How I run it?
 
-You have to start ollama.exe (If you don't have config to boot on start)
-
-
-
-
-The run the renpy project
+You are ready to go
 
 ## Results
 
@@ -68,6 +79,10 @@ You can do some settings on the output tokens and choose your model on the scryp
 ## Tips and Tricks
 
 -Use auto to avoid spamming clicks to know when the response has been served
+<<<<<<< HEAD
+=======
+
+>>>>>>> V0.4
 -Put the auto setting bar below mid to get a more fluid conversation
 
 -Put the auto setting bar below mid to get a more fluid conversation
@@ -75,12 +90,29 @@ You can do some settings on the output tokens and choose your model on the scryp
 
 ## ¿Future updates?
 
+-Auto download and extract ollama if necesary
+
+-Implemenmt qwen on the release version
+
+-Crear ramas: Con binario y sin binario
+
+-Opción con binarios de ollama y sin
+
+-Opción de usar los modelos del sistema y de fuera
+
+-Dejar comentado la opción de usar 
+
+-Improve performance 
+
 -Check typos and grammar
 
 -Create a development journal
 
+<<<<<<< HEAD
 -Digging into settings of the ollama side of the code
 
+=======
+>>>>>>> V0.4
 -Create a icon for the program and the repo
 
 -Add the chance to input personality to the prompts
@@ -89,7 +121,10 @@ You can do some settings on the output tokens and choose your model on the scryp
 
 -Add a diaologue function for multiple characters controlled by the model talk between them ¿Other repo?
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> V0.4
 -¿Create a default personality and look for our MC?
 
 -TTS?
@@ -129,6 +164,13 @@ Beutify the menu
 
 -put on other .py the ollama part to improve readibilty **0.3**
 
+<<<<<<< HEAD
+=======
+-Digging into settings of the ollama side of the code  **0.4**
+
+-Integrate ollama binaries on the renpy project to have a stand alone build to use locally **0.4**
+
+>>>>>>> V0.4
 ## Trouble shoothing
 
 -Waiting Feedback!!!!
