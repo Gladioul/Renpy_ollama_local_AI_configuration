@@ -183,7 +183,9 @@ Image model: Qwen-Image-GGUF
 
 https://huggingface.co/city96/Qwen-Image-gguf/tree/main
 
-ComfyUI workflow:
+    ComfyUI workflow:
+
+https://docs.comfy.org/tutorials/image/qwen/qwen-image
 
 Lora: Qwen-Image-Lightning
 
