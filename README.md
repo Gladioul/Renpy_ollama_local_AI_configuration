@@ -35,10 +35,12 @@ If done properly:
 
 ### Option B:
 1. Download this project and move to your folder where the other renpy projects are stored or create a new one and overwrite it with this one (Other way is only changing the scrypt.rpy file)
-   To download you can go to the button Code-> Download Zip or use git.
+To download you can go to the button Code-> Download Zip or use git.
+
 2. Download ollama and install
 If done properly:
 ![Ollama](pics/Ollama.png)
+
 3. Launch the project in Ren'py
 4. Start the game, and YOU GOT IT
 
@@ -183,7 +185,7 @@ Image model: Qwen-Image-GGUF
 
 https://huggingface.co/city96/Qwen-Image-gguf/tree/main
 
-    ComfyUI workflow:
+ ComfyUI workflow:
 
 https://docs.comfy.org/tutorials/image/qwen/qwen-image
 
