@@ -206,8 +206,6 @@ https://www.comfy.org/
 
 
 
-
-
 Gemma3:1b is only  a option between other great models lbut is a good  for it's efficiency, conversational skills and SFW parameters. Its adviced that is not allowed to distribute gemma3:1b without Google consent, beacause its weights are clouse source. I will explore in the future other altervatives that allows to be shipped in the game files.
 
 https://huggingface.co/google/gemma-3-1b-it
