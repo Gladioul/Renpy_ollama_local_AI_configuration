@@ -183,14 +183,26 @@ Image model: Qwen-Image-GGUF
 
 https://huggingface.co/city96/Qwen-Image-gguf/tree/main
 
+ComfyUI workflow:
+
 Lora: Qwen-Image-Lightning
 
 https://huggingface.co/lightx2v/Qwen-Image-Lightning/tree/main
 
 
+Ace-step are leading the open source ai music generation
+
 Music: Ace-Step 3.5B
 
 https://github.com/ace-step/ACE-Step
+
+Generations Tools:
+
+ComfyUI:
+
+https://www.comfy.org/
+
+
 
 
 
