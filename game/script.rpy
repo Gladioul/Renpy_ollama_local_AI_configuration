@@ -1,4 +1,4 @@
-﻿define e = Character('Concepción', image='concepcion')
+define e = Character('Concepción', image='concepcion')
 define p = Character('Me')
 
 image forest = "forest.png"
@@ -18,10 +18,11 @@ label start:
     scene forest
     # Show the protagonist image, scaled to screen height and centered
     show concepcion
-    $ history = []
-    call download_model_label from _call_download_model_label
+    call download_model_label
+    
 
 label chat:
+    $ history = [] 
     e "Write something and I talk back. Leave it empty to exit."
 
     $ user = renpy.input("Your message:")
@@ -60,13 +61,12 @@ label download_model_label:
                 result["success"] = success
                 result["error"] = error
             download_model_async(MODEL_NAME, on_finish)
-            # Wait for the thread to finish (max 60s)
-            import time
-            timeout = 60
-            waited = 0
-            while result["success"] is None and waited < timeout:
-                time.sleep(0.2)
-                waited += 0.2
+            # Wait for the thread to finish (no timeout).
+            # Use renpy.pause() inside the loop so the game UI remains responsive
+            # while we wait indefinitely for the callback to set result["success"].
+            import renpy
+            while result["success"] is None:
+                renpy.pause(0.2)
             _download_successful = result["success"]
             _download_error = result["error"] or ""
     if not _download_successful:
