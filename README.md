@@ -212,6 +212,13 @@ Gemma3:1b is only  a option between other great models lbut is a good  for it's 
 
 https://huggingface.co/google/gemma-3-1b-it
 
-##  Related Projects:
+##  Related Projects of other creators:
+
+The one below is quite interesting, I am quite sure that we have similar objetives. I have to analize the project more in depht:
+
+https://github.com/Rubiksman78/RenAI-Chat
 
 https://github.com/Calandiel/llama-renpy/blob/master/script.rpy
+
+
+
