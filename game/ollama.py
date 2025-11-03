@@ -6,9 +6,10 @@ import os
 from hidden_prompt import  _merge_hidden_prompt  
 
 OLLAMA_URL = "http://localhost:11434/api/generate"
-MODEL_NAME = "qwen:1.8b"
 OLLAMA_INSTALL_URL = "https://ollama.com/download/OllamaSetup.exe"
 
+MODEL_NAME = "qwen2:7b"
+# MODEL_NAME = "qwen3:4b"
 # MODEL_NAME = "qwen3:1.7b"
 # MODEL_NAME = "gemma3:1b"
 
@@ -38,7 +39,6 @@ def is_ollama_listening(host="localhost", port=11434, timeout=1):
     """
     Checks if the Ollama server is listening on the specified port.
     """
-    import socket
     try:
         with socket.create_connection((host, port), timeout):
             return True
@@ -137,74 +137,33 @@ def download_model_async(model_name=None, on_finish=None, on_progress=None):
     t.daemon = True
     t.start()
 
-def _is_ollama_listening(host="localhost", port=11434, timeout=1):
-    try:
-        with socket.create_connection((host, port), timeout):
-            return True
-    except Exception:
-        return False
-
-def _start_ollama(cmd=None):
-    cmd = cmd or get_ollama_cmd()
-    # Check that the local executable exists
-    if not os.path.isfile(cmd[0]):
-        # Try to download installer into bin if the bin folder is empty / missing.
-        try:
-            # import here to avoid circular imports at module import time
-            from .install_ollama import ensure_ollama_installed
-        except Exception:
-            try:
-                # fallback to relative import if run as script
-                from install_ollama import ensure_ollama_installed
-            except Exception:
-                return False, f"ollama executable not found at {cmd[0]}"
-
-        try:
-            gamedir = os.path.abspath(renpy.config.gamedir)
-            bin_dir = os.path.join(gamedir, "bin")
-            # Attempt to download the provided installer into bin if bin is empty.
-            ensure_ollama_installed(OLLAMA_INSTALL_URL, bin_dir=bin_dir)
-        except Exception:
-            # ignore errors in automatic download attempt; fall through to return message
-            pass
-
-        if not os.path.isfile(cmd[0]):
-            return False, (
-                f"ollama executable not found at {cmd[0]}. "
-                f"If an installer was downloaded to '{os.path.join(renpy.config.gamedir, 'bin')}', please run it manually to complete installation."
-            )
-    # Set up local models folder
-    models_dir = os.path.join(renpy.config.gamedir, "models")
-    os.makedirs(models_dir, exist_ok=True)
-    env = os.environ.copy()
-    env["OLLAMA_MODELS"] = models_dir
-    try:
-        # Launch in background, silence output, with custom environment variable
-        subprocess.Popen(
-            cmd,
-            stdout=subprocess.DEVNULL,
-            stderr=subprocess.DEVNULL,
-            cwd=os.getcwd(),
-            env=env,
-            creationflags=subprocess.CREATE_NO_WINDOW
-        )
-        return True, None
-    except Exception as e:
-        return False, str(e)
-
 def _ensure_ollama_running(timeout=None):
+    """
+    Ensure Ollama is running. If it's not listening, try to start it via
+    `start_ollama_server()` and wait until the port becomes available or the
+    timeout expires.
+
+    Returns: (True, None) on success, or (False, error_message) on failure.
+    """
     timeout = timeout or 10  # Default timeout if not provided
     # If there is already a listener, OK
-    if _is_ollama_listening():
+    if is_ollama_listening():
         return True, None
-    # Try to start
-    started, err = _start_ollama()
+
+    # Attempt to start using the higher-level helper that already handles
+    # environment and waiting logic used elsewhere in this module.
+    try:
+        started = start_ollama_server()
+    except Exception as e:
+        return False, f"could not start ollama: {e}"
+
     if not started:
-        return False, "could not start ollama: {}".format(err)
+        return False, "could not start ollama: start_ollama_server failed or executable missing"
+
     # Wait until it responds or the timeout expires
     deadline = time.time() + timeout
     while time.time() < deadline:
-        if _is_ollama_listening():
+        if is_ollama_listening():
             return True, None
         time.sleep(0.5)
     return False, "timeout waiting for ollama to start"
